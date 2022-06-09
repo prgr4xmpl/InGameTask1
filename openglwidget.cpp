@@ -282,18 +282,20 @@ void OpenGLWidget::paintGL() {
     glPopMatrix();
 
     glPushMatrix(); // Moon Orbit
-        glRotatef(-90.0, 1.0, 0.0, baseGreenwichAngle);
-        glRotatef(-greenwichAngle, 0.0, 1.0, 0.0); // Angle of the Moon Orbit relative to Greenwich.
+        glRotatef(-90.0, -1.0, 0.0, baseGreenwichAngle);
+        glRotatef(greenwichAngle, 0.0, 1.0, 0.0); // Angle of the Moon Orbit relative to Greenwich.
         glRotatef(equatorAngle, 1.0, 0.0, 0.0);
-        drawHollowCircle(0.0, 0.0, moonOrbite * moonSliderCoefficient * 0.9);
+        drawHollowCircle(0.0, 0.0, moonOrbite * moonSliderCoefficient);
     glPopMatrix();
 
     glPushMatrix();						// Moon
-        glRotatef(-baseGreenwichAngle * 100, 0.0, 1.0, 1.0);
-        glRotatef(greenwichAngle, 0.0, 0.0, 1.0); // Angle of the Moon relative to Greenwich.
+//        glRotatef(baseGreenwichAngle * 100.0, -1.0, -1.0, -1.0);
+        glRotatef(-90.0, -1.0, 0.0, 0.23);
 
+        glRotatef(greenwichAngle, 0.0, 1.0, 0.0); // Angle of the Moon Orbit relative to Greenwich.
         glRotatef(equatorAngle, 1.0, 0.0, 0.0);
-        glRotatef(yRotated, 0.0, 1.0, 0.0); // Moon rotation
+
+        glRotatef(yRotated, 0.0, 0.0, -1.0); // Moon rotation
 
         glTranslatef(moonOrbite * moonSliderCoefficient, 0.0, 0.0);	// Moving to Moon Orbit
         glBindTexture(GL_TEXTURE_2D, texture[1]);
