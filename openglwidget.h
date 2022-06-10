@@ -44,7 +44,7 @@ private:
     GLdouble moonRadius = earthRadius / 4;
     GLfloat moonOrbite = 5.0;
     GLfloat camera_fraction = 0.3; // camera "speed"
-    GLfloat baseGreenwichAngle = 23.0 / 100.0;
+    GLfloat earthAngle = 23.0 / 100.0;
 
     GLfloat xRotated, yRotated, zRotated;
 
